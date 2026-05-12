@@ -1,0 +1,172 @@
+﻿<Window x:Class="TorrentDuplicationChecker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:loc="clr-namespace:TorrentDuplicationChecker.Localization"
+        xmlns:models="clr-namespace:TorrentDuplicationChecker.Models"
+        Title="{x:Static loc:Strings.AppTitle}"
+        Height="640"
+        Width="1180"
+        MinHeight="480"
+        MinWidth="880"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource Brush.Bg}">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibility"/>
+    </Window.Resources>
+    <DockPanel>
+        <Border DockPanel.Dock="Top"
+                Background="{StaticResource Brush.Surface}"
+                BorderBrush="{StaticResource Brush.Border}"
+                BorderThickness="0,0,0,1"
+                Padding="20,14,20,14">
+            <DockPanel LastChildFill="False">
+                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="{x:Static loc:Strings.Label_Client}"
+                               VerticalAlignment="Center"
+                               Margin="0,0,10,0"
+                               Foreground="{StaticResource Brush.TextMuted}"
+                               FontWeight="SemiBold"/>
+                    <ComboBox Width="228"
+                              VerticalAlignment="Center"
+                              ItemsSource="{Binding ClientOptions}"
+                              SelectedValue="{Binding SelectedClientKindId}"
+                              SelectedValuePath="Id"
+                              DisplayMemberPath="DisplayName"/>
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button Style="{StaticResource UiButtonToolbarSecondary}"
+                            MinWidth="36"
+                            Padding="10,8"
+                            Margin="0,0,8,0"
+                            FontWeight="Bold"
+                            Content="?"
+                            ToolTip="{x:Static loc:Strings.Help_ButtonTooltip}"
+                            Command="{Binding OpenHelpLegendCommand}"/>
+                    <Button Style="{StaticResource UiButtonToolbarSecondary}"
+                            Content="{x:Static loc:Strings.Btn_Settings}"
+                            Margin="0,0,8,0"
+                            Command="{Binding OpenSettingsCommand}"/>
+                    <Button Style="{StaticResource UiButtonPrimary}"
+                            Content="{x:Static loc:Strings.Btn_Analyze}"
+                            Margin="0,0,8,0"
+                            IsDefault="True"
+                            Command="{Binding AnalyzeCommand}"
+                            IsEnabled="{Binding IsIdle}"/>
+                    <Button Style="{StaticResource UiButtonToolbarSecondary}"
+                            Content="{x:Static loc:Strings.Btn_Cancel}"
+                            Margin="0,0,8,0"
+                            Command="{Binding CancelAnalyzeCommand}"/>
+                    <Rectangle Width="1"
+                               Height="26"
+                               Margin="8,0"
+                               Fill="{StaticResource Brush.Border}"/>
+                    <Button Style="{StaticResource UiButtonToolbarSecondary}"
+                            Content="{x:Static loc:Strings.Btn_OpenSaveFolder}"
+                            Command="{Binding OpenSaveFolderCommand}"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <Border DockPanel.Dock="Bottom"
+                Background="{StaticResource Brush.Surface}"
+                BorderBrush="{StaticResource Brush.Border}"
+                BorderThickness="0,1,0,0"
+                Padding="20,10">
+            <DockPanel LastChildFill="False" VerticalAlignment="Center">
+                <ProgressBar DockPanel.Dock="Right"
+                             Width="176"
+                             Margin="16,0,0,0"
+                             VerticalAlignment="Center"
+                             IsIndeterminate="True"
+                             Visibility="{Binding IsBusy, Converter={StaticResource BoolToVisibility}}"/>
+                <TextBlock Text="{Binding StatusText}"
+                           VerticalAlignment="Center"
+                           Foreground="{StaticResource Brush.TextMuted}"
+                           TextTrimming="CharacterEllipsis"/>
+            </DockPanel>
+        </Border>
+
+        <Border Margin="20,20,20,20"
+                Background="{StaticResource Brush.Surface}"
+                BorderBrush="{StaticResource Brush.Border}"
+                BorderThickness="1"
+                CornerRadius="12"
+                SnapsToDevicePixels="True">
+            <Border CornerRadius="12" ClipToBounds="True">
+                <DataGrid x:Name="DuplicatesGrid"
+                          ItemsSource="{Binding Rows}"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          CanUserAddRows="False"
+                          CanUserDeleteRows="False"
+                          SelectionMode="Extended"
+                          SelectionUnit="FullRow"
+                          SelectionChanged="DuplicatesGrid_OnSelectionChanged">
+                    <DataGrid.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <Border Background="#F8FAFC"
+                                            Padding="14,10,14,9"
+                                            BorderBrush="{StaticResource Brush.Border}"
+                                            BorderThickness="0,0,0,1">
+                                        <TextBlock Text="{Binding Items[0].TorrentName}"
+                                                   TextTrimming="CharacterEllipsis"
+                                                   VerticalAlignment="Center"
+                                                   FontWeight="SemiBold"
+                                                   FontSize="12"/>
+                                    </Border>
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </DataGrid.GroupStyle>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow" BasedOn="{StaticResource {x:Type DataGridRow}}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RecencyHighlight}" Value="{x:Static models:DuplicateRecencyHighlight.Newest}">
+                                    <Setter Property="Background" Value="{StaticResource Brush.RecencyNewest}"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding RecencyHighlight}" Value="{x:Static models:DuplicateRecencyHighlight.Older}">
+                                    <Setter Property="Background" Value="{StaticResource Brush.RecencyOlder}"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding RecencyHighlight}" Value="{x:Static models:DuplicateRecencyHighlight.SavePathConflict}">
+                                    <Setter Property="Background" Value="{StaticResource Brush.RecencyConflict}"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{x:Static loc:Strings.GridCol_MatchKind}"
+                                            Binding="{Binding MatchKindDisplay, Mode=OneWay}"
+                                            Width="140"
+                                            MinWidth="100"/>
+                        <DataGridTextColumn Header="{x:Static loc:Strings.GridCol_Copies}"
+                                            Binding="{Binding CopiesInGroup, Mode=OneWay}"
+                                            Width="110"
+                                            MinWidth="88"/>
+                        <DataGridTextColumn Header="{x:Static loc:Strings.GridCol_Size}"
+                                            Binding="{Binding SizeDisplay, Mode=OneWay}"
+                                            Width="100"
+                                            MinWidth="80"/>
+                        <DataGridTextColumn Header="{x:Static loc:Strings.GridCol_ReferenceDate}"
+                                            Binding="{Binding ReferenceDateDisplay, Mode=OneWay}"
+                                            Width="168"
+                                            MinWidth="130"/>
+                        <DataGridTextColumn Header="{x:Static loc:Strings.GridCol_GroupKey}"
+                                            Binding="{Binding GroupDisplay, Mode=OneWay}"
+                                            Width="2*"
+                                            MinWidth="120"/>
+                        <DataGridTextColumn Header="{x:Static loc:Strings.GridCol_TorrentName}"
+                                            Binding="{Binding TorrentName, Mode=OneWay}"
+                                            Width="2*"
+                                            MinWidth="120"/>
+                        <DataGridTextColumn Header="{x:Static loc:Strings.GridCol_SavePath}"
+                                            Binding="{Binding SavePath, Mode=OneWay}"
+                                            Width="2*"
+                                            MinWidth="120"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Border>
+    </DockPanel>
+</Window>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve"><value>Torrent Duplication Checker</value></data>
+  <data name="Label_Client" xml:space="preserve"><value>Client:</value></data>
+  <data name="Btn_Settings" xml:space="preserve"><value>Settings…</value></data>
+  <data name="Btn_Analyze" xml:space="preserve"><value>Analyze</value></data>
+  <data name="Btn_Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Btn_OpenSaveFolder" xml:space="preserve"><value>Open save folder</value></data>
+  <data name="GridCol_MatchKind" xml:space="preserve"><value>Match kind</value></data>
+  <data name="GridCol_GroupKey" xml:space="preserve"><value>Match key</value></data>
+  <data name="GridCol_Copies" xml:space="preserve"><value>Copies</value></data>
+  <data name="GridCol_TorrentName" xml:space="preserve"><value>Torrent name</value></data>
+  <data name="GridCol_Size" xml:space="preserve"><value>Size</value></data>
+  <data name="GridCol_SavePath" xml:space="preserve"><value>Save path</value></data>
+  <data name="GridCol_ReferenceDate" xml:space="preserve"><value>Compared date</value></data>
+  <data name="Grid_ReferenceDateUnknown" xml:space="preserve"><value>—</value></data>
+  <data name="Grid_MatchKindComment" xml:space="preserve"><value>Comment</value></data>
+  <data name="Grid_MatchKindNameSize" xml:space="preserve"><value>Name + size</value></data>
+  <data name="Grid_EmptyCommentKey" xml:space="preserve"><value>(empty comment)</value></data>
+  <data name="Settings_WindowTitle" xml:space="preserve"><value>Settings</value></data>
+  <data name="Settings_UiLanguage" xml:space="preserve"><value>Interface language</value></data>
+  <data name="Settings_TorrentClientApi" xml:space="preserve"><value>Torrent client (Web UI API)</value></data>
+  <data name="Settings_WebUiAddress" xml:space="preserve"><value>Web UI address</value></data>
+  <data name="Settings_AccountOptional" xml:space="preserve"><value>Credentials (optional)</value></data>
+  <data name="Label_Login" xml:space="preserve"><value>Login</value></data>
+  <data name="Label_Password" xml:space="preserve"><value>Password</value></data>
+  <data name="Btn_Ok" xml:space="preserve"><value>OK</value></data>
+  <data name="Btn_CancelDialog" xml:space="preserve"><value>Cancel</value></data>
+  <data name="Msg_SpecifyWebUiUrl" xml:space="preserve"><value>Specify the torrent Web UI address in Settings.</value></data>
+  <data name="Msg_SettingsSaved" xml:space="preserve"><value>Settings saved.</value></data>
+  <data name="Msg_OpenFolderFailedTitle" xml:space="preserve"><value>Could not open folder</value></data>
+  <data name="Msg_OpenFolderInvalidPath" xml:space="preserve"><value>The save path is empty or the folder does not exist.</value></data>
+  <data name="Status_Ready" xml:space="preserve"><value>Ready.</value></data>
+  <data name="Analyze_StatusConnecting" xml:space="preserve"><value>Connecting to client…</value></data>
+  <data name="Analyze_StatusLoadingTorrents" xml:space="preserve"><value>Loading torrent list…</value></data>
+  <data name="Analyze_StatusAnalyzing" xml:space="preserve"><value>Finding duplicate groups…</value></data>
+  <data name="Analyze_StatusComplete" xml:space="preserve"><value>Done. Listed {0} row(s) that belong to duplicate groups.</value></data>
+  <data name="Analyze_StatusNoDuplicates" xml:space="preserve"><value>No duplicate groups found (by comment or name+size).</value></data>
+  <data name="Analyze_StatusCancelled" xml:space="preserve"><value>Analysis cancelled.</value></data>
+  <data name="Analyze_StatusError" xml:space="preserve"><value>Error.</value></data>
+  <data name="Err_LoginHttp" xml:space="preserve"><value>qBittorrent Web UI login error: {0} {1}</value></data>
+  <data name="Err_InvalidCredentials" xml:space="preserve"><value>Invalid qBittorrent Web UI login or password.</value></data>
+  <data name="Err_BaseUrlMissing" xml:space="preserve"><value>Web UI base URL is required.</value></data>
+  <data name="Help_WindowTitle" xml:space="preserve"><value>Help</value></data>
+  <data name="Help_ButtonTooltip" xml:space="preserve"><value>What the row colors mean</value></data>
+  <data name="Help_LegendTitle" xml:space="preserve"><value>Row colors</value></data>
+  <data name="Help_LegendIntro" xml:space="preserve"><value>Highlighting uses the “Compared date” column: torrent metadata creation time when available, otherwise when the torrent was added to the client. Green and orange apply only when all duplicates in the group share the same save path. If paths differ, the entire group is highlighted in red.</value></data>
+  <data name="Help_LegendGreen" xml:space="preserve"><value>Green — newest item in the duplicate group (by compared date).</value></data>
+  <data name="Help_LegendAmber" xml:space="preserve"><value>Orange — older item in the same group (likely an older release of the same torrent).</value></data>
+  <data name="Help_LegendRed" xml:space="preserve"><value>Red — different save paths within the same duplicate group (possible overlap of old and new data in different folders).</value></data>
+</root>

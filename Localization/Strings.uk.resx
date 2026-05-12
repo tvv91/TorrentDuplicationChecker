@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve"><value>Перевірка дублікатів торрентів</value></data>
+  <data name="Label_Client" xml:space="preserve"><value>Клієнт:</value></data>
+  <data name="Btn_Settings" xml:space="preserve"><value>Параметри…</value></data>
+  <data name="Btn_Analyze" xml:space="preserve"><value>Аналізувати</value></data>
+  <data name="Btn_Cancel" xml:space="preserve"><value>Скасувати</value></data>
+  <data name="Btn_OpenSaveFolder" xml:space="preserve"><value>Відкрити теку збереження</value></data>
+  <data name="GridCol_MatchKind" xml:space="preserve"><value>Тип збігу</value></data>
+  <data name="GridCol_GroupKey" xml:space="preserve"><value>Ключ збігу</value></data>
+  <data name="GridCol_Copies" xml:space="preserve"><value>Копії</value></data>
+  <data name="GridCol_TorrentName" xml:space="preserve"><value>Назва торрента</value></data>
+  <data name="GridCol_Size" xml:space="preserve"><value>Розмір</value></data>
+  <data name="GridCol_SavePath" xml:space="preserve"><value>Шлях збереження</value></data>
+  <data name="GridCol_ReferenceDate" xml:space="preserve"><value>Дата для порівняння</value></data>
+  <data name="Grid_ReferenceDateUnknown" xml:space="preserve"><value>—</value></data>
+  <data name="Grid_MatchKindComment" xml:space="preserve"><value>Коментар</value></data>
+  <data name="Grid_MatchKindNameSize" xml:space="preserve"><value>Назва + розмір</value></data>
+  <data name="Grid_EmptyCommentKey" xml:space="preserve"><value>(порожній коментар)</value></data>
+  <data name="Settings_WindowTitle" xml:space="preserve"><value>Параметри</value></data>
+  <data name="Settings_UiLanguage" xml:space="preserve"><value>Мова інтерфейсу</value></data>
+  <data name="Settings_TorrentClientApi" xml:space="preserve"><value>Торрент-клієнт (Web UI API)</value></data>
+  <data name="Settings_WebUiAddress" xml:space="preserve"><value>Адреса Web UI</value></data>
+  <data name="Settings_AccountOptional" xml:space="preserve"><value>Облікові дані (необов’язково)</value></data>
+  <data name="Label_Login" xml:space="preserve"><value>Логін</value></data>
+  <data name="Label_Password" xml:space="preserve"><value>Пароль</value></data>
+  <data name="Btn_Ok" xml:space="preserve"><value>OK</value></data>
+  <data name="Btn_CancelDialog" xml:space="preserve"><value>Скасувати</value></data>
+  <data name="Msg_SpecifyWebUiUrl" xml:space="preserve"><value>Вкажіть адресу Web UI торрент-клієнта в параметрах.</value></data>
+  <data name="Msg_SettingsSaved" xml:space="preserve"><value>Параметри збережено.</value></data>
+  <data name="Msg_OpenFolderFailedTitle" xml:space="preserve"><value>Не вдалося відкрити теку</value></data>
+  <data name="Msg_OpenFolderInvalidPath" xml:space="preserve"><value>Шлях збереження порожній або теки не існує.</value></data>
+  <data name="Status_Ready" xml:space="preserve"><value>Готово.</value></data>
+  <data name="Analyze_StatusConnecting" xml:space="preserve"><value>Підключення до клієнта…</value></data>
+  <data name="Analyze_StatusLoadingTorrents" xml:space="preserve"><value>Завантаження списку торрентів…</value></data>
+  <data name="Analyze_StatusAnalyzing" xml:space="preserve"><value>Пошук груп-дублікатів…</value></data>
+  <data name="Analyze_StatusComplete" xml:space="preserve"><value>Готово. Показано {0} рядків із груп-дублікатів.</value></data>
+  <data name="Analyze_StatusNoDuplicates" xml:space="preserve"><value>Груп-дублікатів не знайдено (за коментарем або назвою+розміром).</value></data>
+  <data name="Analyze_StatusCancelled" xml:space="preserve"><value>Аналіз скасовано.</value></data>
+  <data name="Analyze_StatusError" xml:space="preserve"><value>Помилка.</value></data>
+  <data name="Err_LoginHttp" xml:space="preserve"><value>Помилка входу qBittorrent Web UI: {0} {1}</value></data>
+  <data name="Err_InvalidCredentials" xml:space="preserve"><value>Невірний логін або пароль qBittorrent Web UI.</value></data>
+  <data name="Err_BaseUrlMissing" xml:space="preserve"><value>Потрібна базова адреса Web UI.</value></data>
+  <data name="Help_WindowTitle" xml:space="preserve"><value>Довідка</value></data>
+  <data name="Help_ButtonTooltip" xml:space="preserve"><value>Що означають кольори рядків</value></data>
+  <data name="Help_LegendTitle" xml:space="preserve"><value>Кольори рядків</value></data>
+  <data name="Help_LegendIntro" xml:space="preserve"><value>Підсвічування використовує стовпець «Дата для порівняння»: час створення в метаданих торрента, якщо доступно, інакше час додавання в клієнт. Зелений і помаранчевий діють лише якщо всі дублікати в групі мають той самий шлях збереження. Якщо шляхи різняться, уся група підсвічується червоним.</value></data>
+  <data name="Help_LegendGreen" xml:space="preserve"><value>Зелений — найновіший торрент у групі (за датою для порівняння).</value></data>
+  <data name="Help_LegendAmber" xml:space="preserve"><value>Помаранчевий — старіша версія в тій самій групі (ймовірно старий реліз того самого торрента).</value></data>
+  <data name="Help_LegendRed" xml:space="preserve"><value>Червона підсвітка — у групі різні шляхи збереження (ризик змішування старих і нових даних у різних теках).</value></data>
+</root>
